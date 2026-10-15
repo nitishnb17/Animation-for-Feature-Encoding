@@ -1,0 +1,29 @@
+{
+  "name": "feature-encoding-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Silent cinematic educational videos on Feature Encoding (Label, One-Hot, Ordinal) built with Remotion.",
+  "scripts": {
+    "preview": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render:label": "remotion render src/index.ts LabelEncoding out/01-label-encoding.mp4 --codec=h264 --muted",
+    "render:onehot": "remotion render src/index.ts OneHotEncoding out/02-one-hot-encoding.mp4 --codec=h264 --muted",
+    "render:ordinal": "remotion render src/index.ts OrdinalEncoding out/03-ordinal-encoding.mp4 --codec=h264 --muted",
+    "render:comparison": "remotion render src/index.ts Comparison out/04-feature-encoding-complete-guide.mp4 --codec=h264 --muted",
+    "render:all": "npm run render:label && npm run render:onehot && npm run render:ordinal && npm run render:comparison",
+    "still:diagrams": "remotion still src/index.ts DiagramNumberLine out/diagram-1-number-line.png --frame=240 && remotion still src/index.ts DiagramOneHot out/diagram-2-one-hot.png --frame=240 && remotion still src/index.ts DiagramStaircase out/diagram-3-staircase.png --frame=240"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.290",
+    "@remotion/transitions": "4.0.290",
+    "katex": "0.16.11",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.290"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/katex": "0.16.7",
+    "typescript": "5.6.3"
+  }
+}
